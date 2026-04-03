@@ -1,6 +1,7 @@
 function [nominal_params, true_params, configurations, measurements] = data_generator(...
     n_configs, perturbation_std, measurement_noise_std, seed)
-
+% DATA_GENERATOR  Create a complete robot kinematic calibration dataset.
+%
 % Workflow:
 %   1. Start from nominal (Puma-560 inspired) 6-DOF DH parameters
 %   2. Add small Gaussian perturbations to get "true" (physical) DH parameters
@@ -82,6 +83,4 @@ for i = 1:n_configs
     pose = pose_from_matrix(T);
     measurements(i, :) = pose' + measurement_noise_std * randn(1, 6);
 end
-
 end
-
