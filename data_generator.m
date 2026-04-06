@@ -1,28 +1,6 @@
 function [nominal_params, true_params, configurations, measurements] = data_generator(...
     n_configs, perturbation_std, measurement_noise_std, seed)
-% DATA_GENERATOR  Create a complete robot kinematic calibration dataset.
-%
-% Workflow:
-%   1. Start from nominal (Puma-560 inspired) 6-DOF DH parameters
-%   2. Add small Gaussian perturbations to get "true" (physical) DH parameters
-%   3. Generate n_configs random joint configurations
-%   4. Compute end-effector poses with true params + optional sensor noise
-%
-% Inputs (all optional, with defaults):
-%   n_configs             - number of calibration configurations (default: 100)
-%   perturbation_std      - struct with fields a, alpha, d, theta (default: see below)
-%   measurement_noise_std - 1-sigma noise on each pose component [m/rad] (default: 1e-4)
-%   seed                  - random seed for reproducibility (default: 42)
-%
-% Outputs:
-%   nominal_params  - (6 x 4) nominal DH  [a, alpha, d, theta_off]
-%   true_params     - (6 x 4) true (perturbed) DH params
-%   configurations  - (n_configs x 6) joint angle sets [rad]
-%   measurements    - (n_configs x 6) noisy measured poses [x,y,z,roll,pitch,yaw]
-%
-% References:
-%   Mooring et al. (1991). Fundamentals of Manipulator Calibration.
-%   Roth et al. (1987). IEEE J. Robotics Automation 3(5), 377-385.
+
 
 % --- Defaults ----------------------------------------------------------
 if nargin < 1 || isempty(n_configs),             n_configs = 100;            end
