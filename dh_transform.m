@@ -1,15 +1,5 @@
 function T = dh_transform(a, alpha, d, theta)
-% DH_TRANSFORM  Compute 4x4 homogeneous transform for a single DH link.
-%
-% Modified DH (Craig) convention:
-%   T = Rot_x(alpha) * Trans_x(a) * Rot_z(theta) * Trans_z(d)
-%
-% Inputs:
-%   a     - link length   [m]
-%   alpha - link twist    [rad]
-%   d     - link offset   [m]
-%   theta - joint angle (offset + actual) [rad]
-%
+
 % Output:
 %   T - 4x4 homogeneous transform from frame i-1 to frame i
 
